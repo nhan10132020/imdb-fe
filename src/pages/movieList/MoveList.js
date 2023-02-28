@@ -39,13 +39,15 @@ function MovieList(){
 
     const isLoadingMore =isLoading || (size > 1 && movieList && typeof movieList[size - 1] === "undefined");
     const isReachingEnd =(movieList && size >=5);
-
+    console.log(size)
     useEffect(()=>{
         const loadMore = ()=>{
-            if (window.innerHeight + document.documentElement.scrollTop  >= document.scrollingElement.scrollHeight && !isReachingEnd) {
+            if (Math.ceil(window.innerHeight + document.documentElement.scrollTop  >= document.scrollingElement.scrollHeight) && !isReachingEnd) {
                 setSize(size+1)
             }
         }
+        //console.log(`${window.innerHeight} + ${document.documentElement.scrollTop} = ${document.documentElement.scrollTop+window.innerHeight} >=${document.scrollingElement.scrollHeight}`)
+
         window.addEventListener('scroll', loadMore);
         return ()=>{
             window.removeEventListener('scroll',loadMore);
