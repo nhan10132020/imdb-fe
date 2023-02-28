@@ -8,6 +8,7 @@ import Skeleton from 'react-loading-skeleton'
 import 'react-loading-skeleton/dist/skeleton.css'
 import { getMovieTrending } from '../../api/movieListApi'
 import { RotatingLines } from 'react-loader-spinner'
+import GoTop from '../../components/GoTop/GoTop'
 function MovieList(){
     let {type}=useParams()
     let fetcher = getMovieList
@@ -52,6 +53,7 @@ function MovieList(){
     },[size])
 
     return (
+            <>
             <div className='movie__list'>
                 <h2 className='list__title'>{isLoading?<Skeleton width={"180px"} baseColor="#202020" highlightColor="#444"/>:type==="trending"?"Trending":replaceUnderscore(type)}</h2>
                 <div className='list__cards'>
@@ -78,6 +80,8 @@ function MovieList(){
                     </div>
                 )}
             </div>
+            <GoTop/>
+            </>
     )
 }
 
