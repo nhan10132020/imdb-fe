@@ -1,31 +1,37 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import MovieList from '../movieList/MoveList'
 import "./home.css"
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from 'react-responsive-carousel';
 import {Link} from 'react-router-dom'
-import MovieList from '../../components/movieList/MoveList';
+import useSwr from 'swr'
+import { getMovieTrending } from '../../api/movieListApi';
+import Skeleton from 'react-loading-skeleton';
 
 function Home(){
-    const [popularMovies,setPopularMovies]= useState([])
-
-    useEffect(()=>{
-        fetch('https://api.themoviedb.org/3/movie/popular?api_key=4e44d9029b1270a757cddc766a1bcb63&language=en-US')
-            .then(res=>res.json())
-            .then(data=>setPopularMovies(data.results));
-    },[])
-
+    const {
+        isLoading,
+        data:trendingMovie,
+    } = useSwr("trending",getMovieTrending)
     return (
-        <>
-            <div className="poster">
-                <Carousel 
-                    showThumbs={false}
-                    autoPlay={true}
-                    transitionTime={3}
-                    infiniteLoop={true}
-                    showStatus={false}
-                >
-                    {
-                        popularMovies.map(movie=>{
+        <>  
+             <div className="poster">
+             <Carousel 
+                 showThumbs={false}
+                 autoPlay={true}
+                 transitionTime={3}
+                 infiniteLoop={true}
+                 showStatus={false}
+             >
+                 {
+                    isLoading?(
+                        <Skeleton
+                         height="600px"
+                         baseColor="#202020" 
+                         highlightColor="#444"
+                        />
+                    ):(
+                        trendingMovie.map(movie=>{
                             return (
                                 <Link style={{textDecoration:"none",color:'white'}} to={`/movie/${movie.id}`} key={movie.id}>
                                     <div className='posterImage'>
@@ -45,11 +51,11 @@ function Home(){
                                 </Link>
                             )
                         })
-                    }
-                </Carousel>
-            </div>
-
-            <MovieList/>
+                    )
+                 }
+             </Carousel>
+         </div>
+         <MovieList/>
         </>
     )
 }

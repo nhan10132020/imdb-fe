@@ -60,3 +60,32 @@
     font-size: .75rem;
     margin-bottom: 0.25rem;
 }
+
+@media (max-width:900px){
+    .cards {
+        height:250px;
+        min-width:150px;
+    }
+    .cards__img {
+        height: 250px;
+        width:100%;
+    }
+    .cards__overlay {
+        height: 250px;
+        width: 85%;
+    }   
+}
+
+@media (max-width:550px){
+    .cards {
+        height:220px;
+    }
+    .cards__img {
+        height: 220px;
+        width:100%;
+    }
+    .cards__overlay {
+        height:220px;
+        width: 85%;
+    }   
+}

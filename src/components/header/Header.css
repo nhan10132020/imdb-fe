@@ -30,3 +30,20 @@ a>span:hover{
 .user__avatar{
     font-size:2rem;
 }
+
+@media(max-width:620px){
+    a>span{
+        margin:0 15px;
+        font-size:1rem
+    }
+
+}
+@media (max-width:450px){
+    a>span{
+        margin:0 10px;
+        font-size:0.8rem
+    }
+    .header__icon{
+        width:50px;
+    }
+}

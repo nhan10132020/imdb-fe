@@ -59,14 +59,15 @@
 }
 
 .movie__genres {
-    margin: 1.25rem 0;
+    display:flex;
+    flex-wrap:wrap;
+    gap: 1.25rem
 }
 
 .movie__genre {
     padding: .5rem;
     border: 2px solid white;
     border-radius: 20px;
-    margin-right: 1rem;
 }
 
 
@@ -84,3 +85,29 @@
     align-items: center;
 }
 
+@media(max-width:900px){
+    .movie__intro{
+        width:100%;
+    }
+    .movie__detail{
+        width:630px;
+        flex-wrap:wrap;
+    }
+    .movie__poster{
+        width:200px
+    }
+    .movie__name{
+        font-weight: 600;
+        font-size: 2rem;
+    }
+    .movie__detailRightBottom{
+        margin:0
+    }
+}
+
+@media(max-width:660px){
+    .movie__detail{
+        width:100%;
+        margin-left:2rem
+    }
+}
