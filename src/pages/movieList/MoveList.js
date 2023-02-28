@@ -47,7 +47,7 @@ function MovieList(){
                 setSize(size+1)
             }
         }
-        //console.log(`${window.innerHeight} + ${document.documentElement.scrollTop} = ${Math.ceil(window.innerHeight + document.documentElement.scrollTop)+1 } >=${document.scrollingElement.scrollHeight}`)
+        //console.log(`${window.innerHeight} + ${document.documentElement.scrollTop} = ${Math.ceil(window.innerHeight + document.documentElement.scrollTop)+1 } >=${document.scrollingElement.scrollHeight} && ${isReachingEnd}`)
 
         window.addEventListener('scroll', loadMore);
         return ()=>{

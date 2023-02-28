@@ -3,6 +3,7 @@
     border-radius:1rem;
     padding:0.2rem 1rem;
     left: 50%;
+    transform:translateX(-50%);
     max-width: calc(100% - var(--ipt-pageMargin)*2);
     position: fixed;
     box-shadow: 0 3px 5px -1px rgb(0 0 0 / 20%), 0 5px 8px 0 rgb(0 0 0 / 14%), 0 1px 14px 0 rgb(0 0 0 / 12%);
@@ -26,22 +27,22 @@
 
 @keyframes slidein {
     from {
-        transform: translateY(-1000%);
+        transform: translate(-50%,-1000%);
     }
   
     to {
-        transform: translateY(0);
+        transform: translate(-50%,0);
     }
 }
 
 @keyframes slideout {
     from {
         top:3rem;
-        transform: translateY(0);
+        transform: translate(-50%,0);
     }
   
     to {
-        transform: translateY(-100%);
+        transform: translate(-50%,-100%);
     }
 }
 

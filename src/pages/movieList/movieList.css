@@ -19,7 +19,7 @@ margin:  2.5rem;
     bottom:10;
     position:absolute;
     left:50%;
-    transform: translateX(50%);
+    transform: translateX(-50%);
 }
 
 @media(max-width:1320px){
@@ -48,6 +48,11 @@ margin:  2.5rem;
     }
 }
 @media(max-width:550px){
+    .list__cards {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 11px;
+    }
     .movie__list {
         padding: 0 0 3.5rem 0;
     }
